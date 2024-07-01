@@ -11,6 +11,7 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 
+
 # Define User model for SQLAlchemy
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -18,23 +19,28 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(60), nullable=False)
 
+
 # User loader function for Flask-Login
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
 
 # Routes for your application
 @app.route('/')
 def home():
     return render_template('home.html')
 
+
 @app.route('/about')
 def about():
     return render_template('about.html')
 
+
 @app.route('/contactus')
 def contactus():
     return render_template('contactus.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -65,10 +71,12 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html')
 
+
 @app.route('/user_home')
 @login_required
 def user_home():
     return render_template('user_home.html', username=current_user.username)
+
 
 @app.route('/logout')
 @login_required
@@ -76,6 +84,7 @@ def logout():
     logout_user()  # Log out the user
     flash('You have been logged out.', 'info')
     return redirect(url_for('login'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
