@@ -1,0 +1,30 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.jumbotron {
+    background: linear-gradient(45deg, #007bff, #00d4ff);
+}
+
+.card {
+    border: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+blockquote {
+    font-size: 1.1em;
+    font-style: italic;
+}
+
+footer {
+    background: #343a40;
+}

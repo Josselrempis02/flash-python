@@ -6,11 +6,17 @@
   <title>User Homepage</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .fixed-size {
+      width: 150px;
+      height: 150px;
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">User Homepage</a>
+    <a class="navbar-brand" href="#">Welcome!</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -18,12 +24,6 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Messages</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
@@ -45,23 +45,23 @@
             <div class="row">
               <!-- Member 1 -->
               <div class="col-md-3 text-center">
-                <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="Member Avatar" data-toggle="modal" data-target="#memberModal1">
-                <h5>Member 1</h5>
+                <img src="{{ url_for('static', filename='img/jm.jpg') }}" class="fixed-size rounded-circle mb-3" alt="Member Avatar" data-toggle="modal" data-target="#memberModal1">
+                <h5>John Micheal L. Valderama</h5>
               </div>
               <!-- Member 2 -->
               <div class="col-md-3 text-center">
-                <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="Member Avatar" data-toggle="modal" data-target="#memberModal2">
-                <h5>Member 2</h5>
+                <img src="{{ url_for('static', filename='img/luka.png') }}" class="fixed-size rounded-circle mb-3" alt="Member Avatar" data-toggle="modal" data-target="#memberModal2">
+                <h5>John Christopher T. Almario</h5>
               </div>
               <!-- Member 3 -->
               <div class="col-md-3 text-center">
-                <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="Member Avatar" data-toggle="modal" data-target="#memberModal3">
-                <h5>Member 3</h5>
+                <img src="{{ url_for('static', filename='img/galut.png') }}" class="fixed-size rounded-circle mb-3" alt="Member Avatar" data-toggle="modal" data-target="#memberModal3">
+                <h5>Rey Kenneth C. Galut</h5>
               </div>
               <!-- Member 4 -->
               <div class="col-md-3 text-center">
-                <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="Member Avatar" data-toggle="modal" data-target="#memberModal4">
-                <h5>Member 4</h5>
+                <img src="{{ url_for('static', filename='img/aj.jpg') }}" class="fixed-size rounded-circle mb-3" alt="Member Avatar" data-toggle="modal" data-target="#memberModal4">
+                <h5>Jossel Alfred R. Rempis</h5>
               </div>
               <!-- More members here -->
             </div>
@@ -77,13 +77,39 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="memberModalLabel1">Member 1 Info</h5>
+          <h5 class="modal-title" id="memberModalLabel1">John Micheal L. Valderama Info</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <p>Details about Member 1 go here.</p>
+          <!-- Replace with actual member information -->
+          <p><strong>Full Name:</strong> John Micheal L. Valderama</p>
+          <p><strong>Date of Birth:</strong>November 24, 2002</p>
+          <p><strong>Place of Birth:</strong> Mandaluyong, Philippines</p>
+          <p><strong>Nationality:</strong> Filipino</p>
+          <p><strong>Gender:</strong> Male</p>
+          <hr>
+          <p><strong>Address:</strong> Brgy. Addition Hills Mandaluyong City</p>
+          <p><strong>Phone Number:</strong> 09657891652</p>
+          <p><strong>Email Address:</strong> valderamajm08@gmail.com</p>
+          <hr>
+          <p><strong>Facebook:</strong> <a href="https://www.facebook.com/johnmichael.valderama.35" target="_blank">John Michael Valderama</a></p>
+          <p><strong>Instagram:</strong> <a href="https://instagram.com/JmValderama" target="_blank">@Jm Valderama</a></p>
+          <hr>
+          <p><strong>Degree:</strong> Bachelor of Science in Information Technology</p>
+          <p><strong>Institution:</strong>Eulogio "Amang" Rodriguez Institute of Science and Technology - Manila Campus</p>
+          <p><strong>Major/Field of Study:</strong> Information Technology </p>
+          <hr>
+          <p><strong>Skills:</strong></p>
+          <ul>
+            <li>JavaScript, HTML, CSS</li>
+          </ul>
+          <hr>
+          <p><strong>Certifications & Licenses:</strong></p>
+          <ul>
+            <li>NC II - Computer System Servicing, 2023</li>
+          </ul>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -97,13 +123,42 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="memberModalLabel2">Member 2 Info</h5>
+          <h5 class="modal-title" id="memberModalLabel2">John Christopher T. Almario Info</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <p>Details about Member 2 go here.</p>
+          <!-- Replace with actual member information -->
+           <p><strong>Full Name:</strong>John Christopher T. Almario</p>
+          <p><strong>Date of Birth:</strong>August 01, 2001</p>
+          <p><strong>Place of Birth:</strong> Manila, Philippines</p>
+          <p><strong>Nationality:</strong> Filipino</p>
+          <p><strong>Gender:</strong> Male</p>
+          <hr>
+          <p><strong>Address:</strong>  Sampaloc Manila</p>
+          <p><strong>Phone Number:</strong>  0998 245 058</p>
+          <p><strong>Email Address:</strong> jcluka@gmail.com</p>
+          <hr>
+          <p><strong>Facebook:</strong> <a href="https://www.facebook.com/jc.jm22" target="_blank">Jc Almario</a></p>
+          <p><strong>Instagram:</strong> <a href="https://instagram.com/JcLuka" target="_blank"> @JcLuka</a></p>
+          <hr>
+          <p><strong>Degree:</strong> Bachelor of Science in Information Technology</p>
+          <p><strong>Institution:</strong>Eulogio "Amang" Rodriguez Institute of Science and Technology - Manila Campus</p>
+          <p><strong>Major/Field of Study:</strong> Information Technology </p>
+          <hr>
+          <p><strong>Skills:</strong></p>
+          <ul>
+            <li>JavaScript, HTML, CSS</li>
+          </ul>
+          <hr>
+          <p><strong>Certifications & Licenses:</strong></p>
+          <ul>
+            <li>NC II - Computer System Servicing, 2023</li>
+          </ul>
+
+
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -117,13 +172,39 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="memberModalLabel3">Member 3 Info</h5>
+          <h5 class="modal-title" id="memberModalLabel3">Rey Kenneth C. Galut Info</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <p>Details about Member 3 go here.</p>
+          <!-- Replace with actual member information -->
+           <p><strong>Full Name:</strong> Rey Kenneth C. Galut</p>
+          <p><strong>Date of Birth:</strong>November 19, 2002</p>
+          <p><strong>Place of Birth:</strong>Quezon City</p>
+          <p><strong>Nationality:</strong> Filipino</p>
+          <p><strong>Gender:</strong> Male</p>
+          <hr>
+          <p><strong>Address:</strong> Manggahan, Pasig City</p>
+          <p><strong>Phone Number:</strong> 09978928379</p>
+          <p><strong>Email Address:</strong> nekgalut@gmail.com</p>
+          <hr>
+          <p><strong>Facebook:</strong> <a href="https://www.facebook.com/kukurikaapu" target="_blank">Ken Galut</a></p>
+          <p><strong>Instagram:</strong> <a href="https://twitter.com/johnmichaell" target="_blank">@Ken Galut</a></p>
+          <hr>
+          <p><strong>Degree:</strong> Bachelor of Science in Information Technology</p>
+          <p><strong>Institution:</strong>Eulogio "Amang" Rodriguez Institute of Science and Technology - Manila Campus</p>
+          <p><strong>Major/Field of Study:</strong> Information Technology </p>
+          <hr>
+          <p><strong>Skills:</strong></p>
+          <ul>
+            <li>JavaScript, HTML, CSS</li>
+          </ul>
+          <hr>
+          <p><strong>Certifications & Licenses:</strong></p>
+          <ul>
+            <li>NC II - Computer System Servicing, 2023</li>
+          </ul>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -137,14 +218,39 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="memberModalLabel4">Member 4 Info</h5>
+          <h5 class="modal-title" id="memberModalLabel4">Jossel Alfred R. Rempis Info</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <p>Details about Member 4 go here.</p>
-        </div>
+          <!-- Replace with actual member information -->
+          <p><strong>Full Name:</strong> Jossel Alfred R. Rempis</p>
+          <p><strong>Date of Birth:</strong> August 03, 2002</p>
+          <p><strong>Place of Birth:</strong> San Mateo Rizal, Philippines</p>
+          <p><strong>Nationality:</strong> Filipino</p>
+          <p><strong>Gender:</strong> Male</p>
+          <hr>
+          <p><strong>Address:</strong> Guitnang bayan 1 San Mateo Rizal, 1850</p>
+          <p><strong>Phone Number:</strong> (0916) 779-0175</p>
+          <p><strong>Email Address:</strong>rempis.jossel.bsinfotech@gmail.com</p>
+          <hr>
+          <p><strong>Facebook:</strong> <a href="https://www.facebook.com/Jossel.rempis.20" target="_blank">josselrempis</a></p>
+          <p><strong>Instagram:</strong> <a href="https://instagram.com/josselrempis" target="_blank">@josselrempis</a></p>
+          <hr>
+          <p><strong>Degree:</strong>Bachelor of Science in Information Technology</p>
+          <p><strong>Institution:</strong>Eulogio "Amang" Rodriguez Institute of Science and Technology - Manila Campus</p>
+          <p><strong>Major/Field of Study:</strong> BSIT/p>
+          <hr>
+          <p><strong>Skills:</strong></p>
+          <ul>
+            <li>JavaScript, HTML, CSS</li>
+          </ul>
+          <hr>
+          <p><strong>Certifications & Licenses:</strong></p>
+          <ul>
+            <li>NC II - Computer System Servicing, 2023</li>
+          </ul>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
