@@ -63,6 +63,15 @@ def register():
         username = request.form.get('username')
         email = request.form.get('email')
         password = request.form.get('password')
+
+        # Check if the username or email is already taken
+        if User.query.filter_by(username=username).first():
+            flash('Username already taken. Please choose a different one.', 'danger')
+            return redirect(url_for('register'))
+        if User.query.filter_by(email=email).first():
+            flash('Email already registered. Please log in.', 'danger')
+            return redirect(url_for('register'))
+
         hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
         user = User(username=username, email=email, password=hashed_password)
         db.session.add(user)

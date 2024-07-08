@@ -1,17 +1,3 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-<!--    <title>User Home</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--    <h1>Welcome, {{ username }}!</h1>-->
-<!--    <p>This is your user home page.</p>-->
-<!--    <a href="{{ url_for('logout') }}">Logout</a>-->
-<!--</body>-->
-<!--</html>-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,10 +6,6 @@
   <title>User Homepage</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap-theme.min.css">
-  <!-- Bootstrap JS -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
   <!-- Navigation -->
@@ -53,40 +35,127 @@
   <!-- Page Content -->
   <div class="container mt-4">
     <div class="row">
-      <div class="col-md-4 mb-4">
-        <!-- User profile section -->
+      <div class="col-md-12 mb-4">
+        <!-- List of members -->
         <div class="card">
           <div class="card-header">
-            Profile
+            Members
           </div>
           <div class="card-body">
-            <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="User Avatar">
-            <h5 class="card-title">{{ username }}</h5>
-            <p class="card-text">User Bio or Description goes here...</p>
-            <a href="#" class="btn btn-primary">Edit Profile</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-8 mb-4">
-        <!-- Main content section -->
-        <div class="card">
-          <div class="card-header">
-            News Feed
-          </div>
-          <div class="card-body">
-            <!-- Example post -->
-            <div class="media mb-3">
-              <img src="https://via.placeholder.com/64" class="mr-3 rounded-circle" alt="User Avatar">
-              <div class="media-body">
-                <h5 class="mt-0">Post Title</h5>
-                <p>Post content goes here...</p>
+            <div class="row">
+              <!-- Member 1 -->
+              <div class="col-md-3 text-center">
+                <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="Member Avatar" data-toggle="modal" data-target="#memberModal1">
+                <h5>Member 1</h5>
               </div>
+              <!-- Member 2 -->
+              <div class="col-md-3 text-center">
+                <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="Member Avatar" data-toggle="modal" data-target="#memberModal2">
+                <h5>Member 2</h5>
+              </div>
+              <!-- Member 3 -->
+              <div class="col-md-3 text-center">
+                <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="Member Avatar" data-toggle="modal" data-target="#memberModal3">
+                <h5>Member 3</h5>
+              </div>
+              <!-- Member 4 -->
+              <div class="col-md-3 text-center">
+                <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="Member Avatar" data-toggle="modal" data-target="#memberModal4">
+                <h5>Member 4</h5>
+              </div>
+              <!-- More members here -->
             </div>
-            <!-- Add more posts here -->
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Member Info Modals -->
+  <!-- Member 1 Modal -->
+  <div class="modal fade" id="memberModal1" tabindex="-1" aria-labelledby="memberModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="memberModalLabel1">Member 1 Info</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Details about Member 1 go here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Member 2 Modal -->
+  <div class="modal fade" id="memberModal2" tabindex="-1" aria-labelledby="memberModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="memberModalLabel2">Member 2 Info</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Details about Member 2 go here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Member 3 Modal -->
+  <div class="modal fade" id="memberModal3" tabindex="-1" aria-labelledby="memberModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="memberModalLabel3">Member 3 Info</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Details about Member 3 go here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Member 4 Modal -->
+  <div class="modal fade" id="memberModal4" tabindex="-1" aria-labelledby="memberModalLabel4" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="memberModalLabel4">Member 4 Info</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Details about Member 4 go here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery and Popper.js -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
