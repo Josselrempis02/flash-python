@@ -64,7 +64,7 @@ def register():
         email = request.form.get('email')
         password = request.form.get('password')
 
-        # Check if the username or email is already taken
+
         if User.query.filter_by(username=username).first():
             flash('Username already taken. Please choose a different one.', 'danger')
             return redirect(url_for('register'))
@@ -90,7 +90,7 @@ def user_home():
 @app.route('/logout')
 @login_required
 def logout():
-    logout_user()  # Log out the user
+    logout_user()
     flash('You have been logged out.', 'info')
     return redirect(url_for('login'))
 
