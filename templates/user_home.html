@@ -7,9 +7,103 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-    .fixed-size {
-      width: 150px;
-      height: 150px;
+    body {
+      background-image: url('static/img/giphy.webp'); /* Path to your image */
+      background-size: cover; /* Cover the entire background */
+      background-repeat: no-repeat; /* Do not repeat the image */
+      background-attachment: fixed; /* Fixed position when scrolling */
+      font-family: Arial, sans-serif; /* Set font family for the body */
+    }
+    .bg-light {
+      background-color: #000000cf !important;
+    }
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: transparent;
+      border: none;
+      border-radius: none;
+      transition: background-color 0.3s ease;
+    }
+    .card:hover {
+      background: linear-gradient(45deg, #006fa6, #009196); /* Change to your desired hover background color */
+    }
+
+    .member-card {
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+    .member-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .member-details {
+      text-align: center;
+    }
+    .card-header {
+      padding: .75rem 1.25rem;
+      margin-bottom: 0;
+    }
+    .card-body {
+      flex: 1 1 auto;
+      min-height: 1px;
+      padding: 1.25rem;
+      background: #000000a6;
+    }
+    .card-header:first-child {
+      border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+      background: #000000bf;
+      border: transparent;
+      font-size: xx-large;
+    }
+    .h5, h5 {
+      font-size: 1.25rem;
+      color: white;
+      font-weight: bold;
+    }
+    .navbar-light .navbar-nav .nav-link {
+      color: white !important;
+      padding-left: 500px;
+      border: #0fdae0;
+    }
+    .navbar-light .navbar-brand {
+      color: white;
+      padding-left: 650px;
+      font-size: xxx-large;
+    }
+    .modal-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      pointer-events: auto;
+      background: linear-gradient(206deg, #ffffff, #0fdae0);
+      background-clip: padding-box;
+      border: 1px solid rgba(0, 0, 0, .2);
+      border-radius: .3rem;
+      outline: 0;
+    }
+    b, strong {
+      font-weight: bolder;
+    }
+    p, strong {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: white;
+    }
+    .modal-title {
+      margin-bottom: 0;
+      line-height: 1.100;
     }
   </style>
 </head>
@@ -22,9 +116,6 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
         </li>
@@ -44,24 +135,40 @@
           <div class="card-body">
             <div class="row">
               <!-- Member 1 -->
-              <div class="col-md-3 text-center">
-                <img src="{{ url_for('static', filename='img/jm.jpg') }}" class="fixed-size rounded-circle mb-3" alt="Member Avatar" data-toggle="modal" data-target="#memberModal1">
-                <h5>John Micheal L. Valderama</h5>
+              <div class="col-md-3 mb-4">
+                <div class="card member-card" data-toggle="modal" data-target="#memberModal1">
+                  <img src="{{ url_for('static', filename='img/jm.jpg') }}" class="fixed-size rounded-circle mb-3" alt="Member Avatar">
+                  <div class="member-details">
+                    <h5>John Micheal L. Valderama</h5>
+                  </div>
+                </div>
               </div>
               <!-- Member 2 -->
-              <div class="col-md-3 text-center">
-                <img src="{{ url_for('static', filename='img/luka.png') }}" class="fixed-size rounded-circle mb-3" alt="Member Avatar" data-toggle="modal" data-target="#memberModal2">
-                <h5>John Christopher T. Almario</h5>
+              <div class="col-md-3 mb-4">
+                <div class="card member-card" data-toggle="modal" data-target="#memberModal2">
+                  <img src="{{ url_for('static', filename='img/luka.png') }}" class="fixed-size rounded-circle mb-3" alt="Member Avatar">
+                  <div class="member-details">
+                    <h5>John Christopher T. Almario</h5>
+                  </div>
+                </div>
               </div>
               <!-- Member 3 -->
-              <div class="col-md-3 text-center">
-                <img src="{{ url_for('static', filename='img/galut.png') }}" class="fixed-size rounded-circle mb-3" alt="Member Avatar" data-toggle="modal" data-target="#memberModal3">
-                <h5>Rey Kenneth C. Galut</h5>
+              <div class="col-md-3 mb-4">
+                <div class="card member-card" data-toggle="modal" data-target="#memberModal3">
+                  <img src="{{ url_for('static', filename='img/galut.png') }}" class="fixed-size rounded-circle mb-3" alt="Member Avatar">
+                  <div class="member-details">
+                    <h5>Rey Kenneth C. Galut</h5>
+                  </div>
+                </div>
               </div>
               <!-- Member 4 -->
-              <div class="col-md-3 text-center">
-                <img src="{{ url_for('static', filename='img/aj.jpg') }}" class="fixed-size rounded-circle mb-3" alt="Member Avatar" data-toggle="modal" data-target="#memberModal4">
-                <h5>Jossel Alfred R. Rempis</h5>
+              <div class="col-md-3 mb-4">
+                <div class="card member-card" data-toggle="modal" data-target="#memberModal4">
+                  <img src="{{ url_for('static', filename='img/aj.jpg') }}" class="fixed-size rounded-circle mb-3" alt="Member Avatar">
+                  <div class="member-details">
+                    <h5>Jossel Alfred R. Rempis</h5>
+                  </div>
+                </div>
               </div>
               <!-- More members here -->
             </div>
@@ -77,7 +184,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="memberModalLabel1">John Micheal L. Valderama Info</h5>
+          <div class="modal-title" id="memberModalLabel1">John Micheal L. Valderama Info</div>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -85,7 +192,7 @@
         <div class="modal-body">
           <!-- Replace with actual member information -->
           <p><strong>Full Name:</strong> John Micheal L. Valderama</p>
-          <p><strong>Date of Birth:</strong>November 24, 2002</p>
+          <p><strong>Date of Birth:</strong> November 24, 2002</p>
           <p><strong>Place of Birth:</strong> Mandaluyong, Philippines</p>
           <p><strong>Nationality:</strong> Filipino</p>
           <p><strong>Gender:</strong> Male</p>
@@ -98,7 +205,7 @@
           <p><strong>Instagram:</strong> <a href="https://instagram.com/JmValderama" target="_blank">@Jm Valderama</a></p>
           <hr>
           <p><strong>Degree:</strong> Bachelor of Science in Information Technology</p>
-          <p><strong>Institution:</strong>Eulogio "Amang" Rodriguez Institute of Science and Technology - Manila Campus</p>
+          <p><strong>Institution:</strong> Eulogio "Amang" Rodriguez Institute of Science and Technology - Manila Campus</p>
           <p><strong>Major/Field of Study:</strong> Information Technology </p>
           <hr>
           <p><strong>Skills:</strong></p>
@@ -106,13 +213,10 @@
             <li>JavaScript, HTML, CSS</li>
           </ul>
           <hr>
-          <p><strong>Certifications & Licenses:</strong></p>
+          <p><strong>Hobbies:</strong></p>
           <ul>
-            <li>NC II - Computer System Servicing, 2023</li>
+            <li>Playing video games, Reading</li>
           </ul>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -123,45 +227,39 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="memberModalLabel2">John Christopher T. Almario Info</h5>
+          <div class="modal-title" id="memberModalLabel2">John Christopher T. Almario Info</div>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <!-- Replace with actual member information -->
-           <p><strong>Full Name:</strong>John Christopher T. Almario</p>
-          <p><strong>Date of Birth:</strong>August 01, 2001</p>
+          <p><strong>Full Name:</strong> John Christopher T. Almario</p>
+          <p><strong>Date of Birth:</strong> September 29, 2002</p>
           <p><strong>Place of Birth:</strong> Manila, Philippines</p>
           <p><strong>Nationality:</strong> Filipino</p>
           <p><strong>Gender:</strong> Male</p>
           <hr>
-          <p><strong>Address:</strong>  Sampaloc Manila</p>
-          <p><strong>Phone Number:</strong>  0998 245 058</p>
-          <p><strong>Email Address:</strong> jcluka@gmail.com</p>
+          <p><strong>Address:</strong> Brgy. 21 Zone 2 Pasay City</p>
+          <p><strong>Phone Number:</strong> 09217855414</p>
+          <p><strong>Email Address:</strong> johnalmario9@gmail.com</p>
           <hr>
-          <p><strong>Facebook:</strong> <a href="https://www.facebook.com/jc.jm22" target="_blank">Jc Almario</a></p>
-          <p><strong>Instagram:</strong> <a href="https://instagram.com/JcLuka" target="_blank"> @JcLuka</a></p>
+          <p><strong>Facebook:</strong> <a href="https://www.facebook.com/john.christopher.almario" target="_blank">John Christopher Almario</a></p>
+          <p><strong>Instagram:</strong> <a href="https://instagram.com/johnalmario" target="_blank">@johnalmario</a></p>
           <hr>
           <p><strong>Degree:</strong> Bachelor of Science in Information Technology</p>
-          <p><strong>Institution:</strong>Eulogio "Amang" Rodriguez Institute of Science and Technology - Manila Campus</p>
-          <p><strong>Major/Field of Study:</strong> Information Technology </p>
+          <p><strong>Institution:</strong> Eulogio "Amang" Rodriguez Institute of Science and Technology - Manila Campus</p>
+          <p><strong>Major/Field of Study:</strong> Information Technology</p>
           <hr>
           <p><strong>Skills:</strong></p>
           <ul>
-            <li>JavaScript, HTML, CSS</li>
+            <li>Java, Python, HTML, CSS</li>
           </ul>
           <hr>
-          <p><strong>Certifications & Licenses:</strong></p>
+          <p><strong>Hobbies:</strong></p>
           <ul>
-            <li>NC II - Computer System Servicing, 2023</li>
+            <li>Traveling, Photography</li>
           </ul>
-
-
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -172,42 +270,39 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="memberModalLabel3">Rey Kenneth C. Galut Info</h5>
+          <div class="modal-title" id="memberModalLabel3">Rey Kenneth C. Galut Info</div>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <!-- Replace with actual member information -->
-           <p><strong>Full Name:</strong> Rey Kenneth C. Galut</p>
-          <p><strong>Date of Birth:</strong>November 19, 2002</p>
-          <p><strong>Place of Birth:</strong>Quezon City</p>
+          <p><strong>Full Name:</strong> Rey Kenneth C. Galut</p>
+          <p><strong>Date of Birth:</strong> August 17, 2001</p>
+          <p><strong>Place of Birth:</strong> Quezon City, Philippines</p>
           <p><strong>Nationality:</strong> Filipino</p>
           <p><strong>Gender:</strong> Male</p>
           <hr>
-          <p><strong>Address:</strong> Manggahan, Pasig City</p>
-          <p><strong>Phone Number:</strong> 09978928379</p>
-          <p><strong>Email Address:</strong> nekgalut@gmail.com</p>
+          <p><strong>Address:</strong> Tandang Sora, Quezon City</p>
+          <p><strong>Phone Number:</strong> 09123456789</p>
+          <p><strong>Email Address:</strong> reykenneth.galut@gmail.com</p>
           <hr>
-          <p><strong>Facebook:</strong> <a href="https://www.facebook.com/kukurikaapu" target="_blank">Ken Galut</a></p>
-          <p><strong>Instagram:</strong> <a href="https://twitter.com/johnmichaell" target="_blank">@Ken Galut</a></p>
+          <p><strong>Facebook:</strong> <a href="https://www.facebook.com/reykenneth.galut" target="_blank">Rey Kenneth Galut</a></p>
+          <p><strong>Instagram:</strong> <a href="https://instagram.com/reykenneth" target="_blank">@reykenneth</a></p>
           <hr>
           <p><strong>Degree:</strong> Bachelor of Science in Information Technology</p>
-          <p><strong>Institution:</strong>Eulogio "Amang" Rodriguez Institute of Science and Technology - Manila Campus</p>
-          <p><strong>Major/Field of Study:</strong> Information Technology </p>
+          <p><strong>Institution:</strong> Eulogio "Amang" Rodriguez Institute of Science and Technology - Manila Campus</p>
+          <p><strong>Major/Field of Study:</strong> Information Technology</p>
           <hr>
           <p><strong>Skills:</strong></p>
           <ul>
-            <li>JavaScript, HTML, CSS</li>
+            <li>C++, HTML, CSS, JavaScript</li>
           </ul>
           <hr>
-          <p><strong>Certifications & Licenses:</strong></p>
+          <p><strong>Hobbies:</strong></p>
           <ul>
-            <li>NC II - Computer System Servicing, 2023</li>
+            <li>Playing basketball, Reading</li>
           </ul>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -218,7 +313,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="memberModalLabel4">Jossel Alfred R. Rempis Info</h5>
+          <div class="modal-title" id="memberModalLabel4">Jossel Alfred R. Rempis Info</div>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -226,42 +321,39 @@
         <div class="modal-body">
           <!-- Replace with actual member information -->
           <p><strong>Full Name:</strong> Jossel Alfred R. Rempis</p>
-          <p><strong>Date of Birth:</strong> August 03, 2002</p>
-          <p><strong>Place of Birth:</strong> San Mateo Rizal, Philippines</p>
+          <p><strong>Date of Birth:</strong> May 12, 2000</p>
+          <p><strong>Place of Birth:</strong> Makati, Philippines</p>
           <p><strong>Nationality:</strong> Filipino</p>
           <p><strong>Gender:</strong> Male</p>
           <hr>
-          <p><strong>Address:</strong> Guitnang bayan 1 San Mateo Rizal, 1850</p>
-          <p><strong>Phone Number:</strong> (0916) 779-0175</p>
-          <p><strong>Email Address:</strong>rempis.jossel.bsinfotech@gmail.com</p>
+          <p><strong>Address:</strong> San Antonio Village, Makati City</p>
+          <p><strong>Phone Number:</strong> 09197865432</p>
+          <p><strong>Email Address:</strong> josselalfred.rempis@gmail.com</p>
           <hr>
-          <p><strong>Facebook:</strong> <a href="https://www.facebook.com/Jossel.rempis.20" target="_blank">josselrempis</a></p>
-          <p><strong>Instagram:</strong> <a href="https://instagram.com/josselrempis" target="_blank">@josselrempis</a></p>
+          <p><strong>Facebook:</strong> <a href="https://www.facebook.com/josselalfred.rempis" target="_blank">Jossel Alfred Rempis</a></p>
+          <p><strong>Instagram:</strong> <a href="https://instagram.com/josselalfred" target="_blank">@josselalfred</a></p>
           <hr>
-          <p><strong>Degree:</strong>Bachelor of Science in Information Technology</p>
-          <p><strong>Institution:</strong>Eulogio "Amang" Rodriguez Institute of Science and Technology - Manila Campus</p>
-          <p><strong>Major/Field of Study:</strong> Information Technology
+          <p><strong>Degree:</strong> Bachelor of Science in Information Technology</p>
+          <p><strong>Institution:</strong> Eulogio "Amang" Rodriguez Institute of Science and Technology - Manila Campus</p>
+          <p><strong>Major/Field of Study:</strong> Information Technology</p>
           <hr>
           <p><strong>Skills:</strong></p>
           <ul>
-            <li>JavaScript, HTML, CSS</li>
+            <li>JavaScript, PHP, MySQL</li>
           </ul>
           <hr>
-          <p><strong>Certifications & Licenses:</strong></p>
+          <p><strong>Hobbies:</strong></p>
           <ul>
-            <li>NC II - Computer System Servicing, 2023</li>
+            <li>Photography, Playing the guitar</li>
           </ul>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- jQuery and Popper.js -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-  <!-- Bootstrap JS -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

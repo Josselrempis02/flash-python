@@ -1,22 +1,66 @@
 {% extends 'base.html' %}
 {% block content %}
-<!--suppress ALL -->
-  <div class="container mt-5">
-        <h1>Register</h1>
-        <form method="POST" action="{{ url_for('register') }}">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
+<style>
+    .register-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .register-card {
+        width: 100%;
+        max-width: 400px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .register-card .card-body {
+        padding: 2rem;
+    }
+    .register-card .form-group label {
+        font-weight: bold;
+    }
+    .register-card .btn-primary {
+        width: 100%;
+    }
+    .register-card h1 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+</style>
+
+<div class="register-container">
+    <div class="register-card card">
+        <div class="card-body">
+            <h1>Register</h1>
+            <form method="POST" action="{{ url_for('register') }}">
+                <div class="form-group mb-3">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                    <input type="checkbox" onclick="togglePassword()"> Show Password
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
     </div>
+</div>
+
+<script>
+    function togglePassword() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
 {% endblock %}
