@@ -7,7 +7,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        height: 50vh;
     }
 
     .login-card {
@@ -34,6 +34,36 @@
         text-align: center;
         margin-bottom: 1.5rem;
     }
+
+    .signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+.signup span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+.signup a {
+    color: #F5F7F8;
+    text-decoration: none;
+}
+
+.signup a:hover {
+    color: #e89815;
+}
+
+    .forgot-password{
+    padding-left: 2rem;
+    }
+
+    .forgot-password a:hover{
+     color: #e89815;
+    }
 </style>
 
 <div class="login-container">
@@ -57,12 +87,21 @@
                     <label for="email">Email</label>
                     <input type="email" class="form-control" id="email" name="email" required>
                 </div>
-                <div class="form-group mb-3">
+               <div class="form-group mb-3">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password" required>
-                    <input type="checkbox" onclick="togglePassword()"> Show Password
-                </div>
+                <div class="password-options">
+                      <input type="checkbox" onclick="togglePassword()"> <span>Show Password</span>
+                       <a href="" class="forgot-password">Forgot Password?</a>
+                      </div>
+            </div>
+
+
                 <button type="submit" class="btn btn-primary">Login</button>
+
+                 <div class="signup">
+                    <span>Don't have an account?<a href=""> Sign Up</a></span>
+                </div>
             </form>
         </div>
     </div>
