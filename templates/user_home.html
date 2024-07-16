@@ -6,6 +6,7 @@
   <title>User Homepage</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
   <style>
     body {
       background-image: url('static/img/giphy.webp'); /* Path to your image */
@@ -13,6 +14,7 @@
       background-repeat: no-repeat; /* Do not repeat the image */
       background-attachment: fixed; /* Fixed position when scrolling */
       font-family: Arial, sans-serif; /* Set font family for the body */
+      background:  #182373;
     }
     .fixed-size{
     width:200px;
@@ -103,7 +105,7 @@
     p, strong {
       margin-top: 0;
       margin-bottom: 1rem;
-      color: white;
+
     }
     .modal-title {
       margin-bottom: 0;
@@ -112,20 +114,20 @@
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Welcome!</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <!-- Navigation -->   <header>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="{{ url_for('user_home') }}">Home</a></li>
+                <li><a href="{{ url_for('users') }}">Users</a></li>
+
+            </ul>
+        </nav>
+        <div>
+          <a href="{{ url_for('logout') }}" class="cta"><button>Logout</button></a>
+
+
+         </div>
+    </header>
 
   <!-- Page Content -->
 <div class="container mt-4">

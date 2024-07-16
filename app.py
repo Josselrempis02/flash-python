@@ -90,11 +90,25 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html')
 
-
 @app.route('/user_home')
 @login_required
 def user_home():
     return render_template('user_home.html', username=current_user.username)
+
+@app.route('/users')
+@login_required
+def users():
+    users = User.query.all()
+    return render_template('users.html', users=users)
+
+@app.route('/delete_user/<int:user_id>', methods=['POST'])
+@login_required
+def delete_user(user_id):
+    user = User.query.get_or_404(user_id)
+    db.session.delete(user)
+    db.session.commit()
+    flash('User has been deleted.', 'success')
+    return redirect(url_for('users'))
 
 @app.route('/logout')
 @login_required
@@ -134,7 +148,6 @@ def reset_token(token):
         flash('Your password has been updated! You can now log in.', 'success')
         return redirect(url_for('login'))
     return render_template('reset_token.html')
-
 
 def send_reset_email(user):
     token = user.get_reset_token()
